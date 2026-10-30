@@ -1,0 +1,18 @@
+from fastapi import FastAPI
+from routes.student_routes import router as student_router
+
+app = FastAPI(
+    title="Student CRUD API",
+    description="A simple Student Management REST API using FastAPI (Ashwin Yadav-131)",
+    version="1.0.0",
+    docs_url="/" 
+)
+app.include_router(student_router)
+
+
+@app.get("/")
+def home():
+    return {
+        "message": "Welcome to Student CRUD API",
+    }  
+
